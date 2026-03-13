@@ -73,6 +73,8 @@
                     <div>
                         <div>@(string.IsNullOrEmpty(Model.Priority) ? string.Empty : string.Format(Index.Priority, Model.Priority)) @Model.Category @Model.TicketType</div>
 
+                        <div>@(string.IsNullOrEmpty(Model.Department) ? string.Empty :  string.Format(Index.Department, Model.Department))</div>
+
                         <div>
                             @Html.Raw(string.Format(Index.AssignedTo, string.IsNullOrEmpty(Model.AssignedTo) ? "<span class='label label-warning'>" + Index.Unassigned + "</span>" : Model.GetAssignedToInfo().DisplayName))
                         </div>
@@ -99,7 +101,7 @@
                 <aside class="small">
                     <div style="padding: 5px;">
                         <div class="row">
-                            @Html.LabelFor(m => m.TicketStatus, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.TicketStatus, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.TicketStatus.GetDisplayName()
                             </div>
@@ -132,38 +134,38 @@
                             </div>
                         </div>
                         <div class="row">
-                            @Html.LabelFor(m => m.LastUpdateBy, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.LastUpdateBy, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.GetLastUpdatedByInfo().DisplayName
                             </div>
                         </div>
                         <div class="row">
-                            @Html.LabelFor(m => m.LastUpdateDate, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.LastUpdateDate, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.LastUpdateDate.DateTime.ToShortDateString() @Model.LastUpdateDate.DateTime.ToShortTimeString()
                             </div>
                         </div>
 
                         <div class="row">
-                            @Html.LabelFor(m => m.CurrentStatusSetBy, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.CurrentStatusSetBy, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.GetCurrentStatusSetByInfo().DisplayName
                             </div>
                         </div>
                         <div class="row">
-                            @Html.LabelFor(m => m.CurrentStatusDate, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.CurrentStatusDate, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.CurrentStatusDate.DateTime.ToShortDateString() @Model.CurrentStatusDate.DateTime.ToShortTimeString()
                             </div>
                         </div>
                         <div class="row">
-                            @Html.LabelFor(m => m.CreatedBy, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.CreatedBy, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.GetCreatedByInfo().DisplayName
                             </div>
                         </div>
                         <div class="row">
-                            @Html.LabelFor(m => m.CreatedDate, new {@class = "col-sm-5 col-lg-4 text-right"})
+                            @Html.LabelFor(m => m.CreatedDate, new { @class = "col-sm-5 col-lg-4 text-right" })
                             <div class="col-sm-7 col-lg-8">
                                 @Model.CreatedDate.DateTime.ToShortDateString() @Model.CreatedDate.DateTime.ToShortTimeString()
                             </div>
@@ -186,7 +188,7 @@
 
                                 @foreach (var sub in Model.TicketSubscribers)
                                 {
-                                <div>@sub.GetSubscriberDisplayInfo().DisplayName</div>
+                                    <div>@sub.GetSubscriberDisplayInfo().DisplayName</div>
                                 }
                             </div>
                         </div>
