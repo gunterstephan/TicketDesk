@@ -156,6 +156,9 @@
   <data name="TicketList_Category" xml:space="preserve">
     <value>Category</value>
   </data>
+  <data name="TicketList_Department" xml:space="preserve">
+    <value>Department</value>
+  </data>
   <data name="TicketList_Created" xml:space="preserve">
     <value>Created</value>
   </data>
